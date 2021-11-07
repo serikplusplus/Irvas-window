@@ -4,8 +4,9 @@
  * @param {*} tabSelector - селектор табов
  * @param {*} contentSelector - селектор контента табов
  * @param {*} activeClass - класс активного таба
+ * @param {*} display - значение display css при активности контента
  */
-const tabs = (headerSelector, tabSelector, contentSelector, activeClass) => {
+const tabs = (headerSelector, tabSelector, contentSelector, activeClass, display = 'block') => {
 	const header = document.querySelector(headerSelector),
 		tabs = document.querySelectorAll(tabSelector),
 		contents = document.querySelectorAll(contentSelector);
@@ -17,7 +18,7 @@ const tabs = (headerSelector, tabSelector, contentSelector, activeClass) => {
 	function showTab(tabIndex = 0) {
 		contents.forEach((cont, i) => {
 			if (i == tabIndex) {
-				cont.style.display = 'block';
+				cont.style.display = display;
 			}
 		});
 		tabs[tabIndex].classList.add(activeClass);
